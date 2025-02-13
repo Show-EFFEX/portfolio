@@ -92,6 +92,7 @@
       flex-wrap: wrap;
       gap: 2rem;
       justify-content: center;
+      align-items: stretch;
       margin-top: 2rem;
     }
     .card {
@@ -285,35 +286,35 @@
 
   <!-- Pricing Cards -->
   <section class="pricing-cards container">
-    <!-- Card 1: Intro -->
-    <div class="card" id="card-intro">
-      <h3>Intro</h3>
-      <p class="subtitle">Subtitle for Intro Plan</p>
+    <!-- Card 1: Use data-plan attribute so the visible title can be changed freely -->
+    <div class="card" data-plan="intro">
+      <h3>Basic</h3>
+      <p class="subtitle">Subtitle for Basic Plan</p>
       <p class="price">$-- <span>/ project</span></p>
-      <ul class="features" id="intro-features">
+      <ul class="features" data-features="intro">
         <!-- Filled by JS -->
       </ul>
       <button>Choose Plan</button>
     </div>
 
     <!-- Card 2: Pro (Most Popular) -->
-    <div class="card pro" id="card-pro">
+    <div class="card pro" data-plan="pro">
       <span class="badge-popular">MOST POPULAR</span>
-      <h3>Pro</h3>
-      <p class="subtitle">Subtitle for Pro Plan</p>
+      <h3>Standard</h3>
+      <p class="subtitle">Subtitle for Standard Plan</p>
       <p class="price">$-- <span>/ project</span></p>
-      <ul class="features" id="pro-features">
+      <ul class="features" data-features="pro">
         <!-- Filled by JS -->
       </ul>
       <button>Choose Plan</button>
     </div>
 
     <!-- Card 3: Enterprise -->
-    <div class="card" id="card-enterprise">
+    <div class="card" data-plan="enterprise">
       <h3>Enterprise</h3>
       <p class="subtitle">Subtitle for Enterprise Plan</p>
       <p class="price">$-- <span>/ project</span></p>
-      <ul class="features" id="enterprise-features">
+      <ul class="features" data-features="enterprise">
         <!-- Filled by JS -->
       </ul>
       <button>Choose Plan</button>
@@ -322,7 +323,7 @@
 
   <script>
     // Plan data for each category:
-    // Each category has 3 plans: Intro, Pro, Enterprise.
+    // Each category has 3 plans: intro, pro, enterprise.
     // Each plan has: price, subtitle, array of 5 checked features, array of 3 crossed features.
     const planData = {
       "Long Form Videos": {
@@ -335,7 +336,6 @@
             "Stock Music",
             "720p Output",
             "1 Revision"
-            "3 Days Delivery"
           ],
           crosses: [
             "Advanced Effects",
@@ -531,10 +531,10 @@
       }
     };
 
-    // Grab references to cards
-    const introCard = document.getElementById('card-intro');
-    const proCard = document.getElementById('card-pro');
-    const enterpriseCard = document.getElementById('card-enterprise');
+    // Grab references to cards using data-plan attributes
+    const introCard = document.querySelector('[data-plan="intro"]');
+    const proCard = document.querySelector('[data-plan="pro"]');
+    const enterpriseCard = document.querySelector('[data-plan="enterprise"]');
 
     const introPriceEl = introCard.querySelector('.price');
     const proPriceEl = proCard.querySelector('.price');
@@ -544,9 +544,10 @@
     const proSubtitleEl = proCard.querySelector('.subtitle');
     const enterpriseSubtitleEl = enterpriseCard.querySelector('.subtitle');
 
-    const introFeaturesEl = document.getElementById('intro-features');
-    const proFeaturesEl = document.getElementById('pro-features');
-    const enterpriseFeaturesEl = document.getElementById('enterprise-features');
+    // Use the features UL element’s data-features attribute as an identifier
+    const introFeaturesEl = document.querySelector('[data-features="intro"]');
+    const proFeaturesEl = document.querySelector('[data-features="pro"]');
+    const enterpriseFeaturesEl = document.querySelector('[data-features="enterprise"]');
 
     const serviceButtons = document.querySelectorAll('.service-btn');
 
