@@ -670,12 +670,20 @@ button
 .mil-button.mil-icon-button-sm svg path {
   fill: rgb(0, 0, 0);
 }
+.mil-button {
+  background: linear-gradient(to right, #ff7e5f, #feb47b); /* your gradient color */
+  background-size: 100% 100%;
+  transition: background-size 0.3s ease; /* Adds smooth transition for background */
+}
+
 .mil-button:hover {
   -webkit-transform: scale(1.015);
           transform: scale(1.015);
   -webkit-filter: brightness(110%);
           filter: brightness(110%);
+  background-size: 105% 105%; /* Slightly expands background on hover */
 }
+
 .mil-button:hover svg {
   -webkit-transform: scale(1.15);
           transform: scale(1.15);
