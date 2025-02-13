@@ -1,18 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>Pricing Page - Default Long Form Videos</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <!-- Google Font: DM Sans -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <meta charset="UTF-8">
+  <title>Pricing Page</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Google Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
     href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap"
     rel="stylesheet"
   />
   <style>
-    /* Reset & Base Styles */
+    /* RESET & BASE */
     * {
       margin: 0;
       padding: 0;
@@ -20,191 +20,168 @@
     }
     body {
       font-family: 'DM Sans', sans-serif;
-      background-color: #F7F8FE;
+      background: #F7F8FE;
       color: #2F2E41;
-    }
-    ul {
-      list-style: none;
-      padding: 0;
-    }
-    a {
-      text-decoration: none;
-      color: inherit;
+      line-height: 1.4;
     }
     img {
       max-width: 100%;
       display: block;
     }
+    ul {
+      list-style: none;
+    }
+    a, button {
+      text-decoration: none;
+      cursor: pointer;
+    }
 
-    /* Container */
+    /* CONTAINER */
     .container {
+      width: 90%;
       max-width: 1200px;
       margin: 0 auto;
-      padding: 2rem;
+      padding: 2rem 1rem;
+      text-align: center;
     }
 
-    /* Hero Section */
-    .hero {
-      text-align: center;
-      margin-bottom: 2rem;
-    }
-    .hero h1 {
-      font-size: 2.5rem;
+    /* HERO SECTION */
+    .hero-title {
+      font-size: 2rem;
       font-weight: 700;
-      margin-bottom: 1rem;
+      margin-bottom: 0.5rem;
     }
-    .hero p {
+    .hero-subtitle {
       font-size: 1rem;
       color: #6F6E84;
+      margin-bottom: 2rem;
     }
 
-    /* Service Buttons */
-    .services-section {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 1rem;
-      margin: 3rem 0;
+    /* TOGGLE SECTION (Service Buttons) */
+    .toggle-section {
+      display: inline-flex;
+      align-items: center;
+      background: #FFFFFF;
+      border-radius: 30px;
+      padding: 0.25rem;
+      margin-bottom: 3rem;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
     }
-    .service-btn {
+    .toggle-option {
+      padding: 0.5rem 1.5rem;
+      border-radius: 30px;
+      font-weight: 500;
+      font-size: 0.9rem;
+      transition: background 0.3s, color 0.3s;
+      color: #6F6E84;
+    }
+    .toggle-option:hover {
       background: #ECEBFF;
       color: #7B61FF;
-      font-weight: 700;
-      font-size: 1rem;
-      border: none;
-      border-radius: 8px;
-      padding: 0.75rem 1.5rem;
-      cursor: pointer;
-      transition: background 0.3s;
     }
-    .service-btn:hover {
-      background: #d7d4ff;
-    }
-    /* Active Button Style */
-    .service-btn.active {
+    .toggle-option.active {
       background: #7B61FF;
       color: #FFFFFF;
     }
 
-    /* Pricing Cards */
-    .pricing-cards {
+    /* PRICING WRAPPER */
+    .pricing-wrapper {
       display: flex;
       flex-wrap: wrap;
-      gap: 2rem;
       justify-content: center;
-      align-items: stretch;
-      margin-top: 2rem;
+      gap: 2rem;
+      margin-bottom: 4rem;
     }
-    .card {
+
+    /* PRICING CARD */
+    .pricing-card {
       background: #FFFFFF;
       border-radius: 16px;
       box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
       width: 270px;
       padding: 2rem;
       text-align: center;
-      position: relative;
       display: flex;
       flex-direction: column;
-      transition: 0.3s ease;
+      position: relative;
+      transition: transform 0.3s, box-shadow 0.3s;
     }
-    .card:hover {
-      transform: translateY(-4px);
-      /* Black drop shadow with higher opacity */
-      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+    .pricing-card:hover {
+      transform: scale(1.03);
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3); /* Black drop shadow */
     }
-    .card h3 {
+    .pricing-card h3 {
       font-size: 1.25rem;
       font-weight: 700;
       margin-bottom: 0.25rem;
       color: #2F2E41;
     }
-    .card p.subtitle {
-      font-size: 0.9rem;
+    .pricing-card p {
+      margin-bottom: 1rem;
       color: #6F6E84;
-      margin-bottom: 1.5rem;
+      font-size: 0.95rem;
+      line-height: 1.4;
     }
-    .price {
+    .pricing-price {
       font-size: 2rem;
       font-weight: 700;
+      margin-bottom: 1rem;
       color: #2F2E41;
-      margin-bottom: 0.25rem;
     }
-    .price span {
+    .pricing-price span {
       font-size: 1rem;
       font-weight: 400;
       color: #6F6E84;
+      margin-left: 4px;
     }
 
-    /* Features */
-    .features {
+    /* FEATURES LIST */
+    .feature-list {
       text-align: left;
-      margin: 1.5rem 0;
+      margin-bottom: 2rem;
     }
-    .features li {
-      position: relative;
-      padding-left: 1.5rem;
+    .feature-list li {
+      display: flex;
+      align-items: center;
+      font-size: 0.95rem;
       margin-bottom: 0.75rem;
-      font-size: 0.9rem;
-      color: #2F2E41;
     }
-    /* Default bullet: checkmark */
-    .features li::before {
-      content: '✓';
-      position: absolute;
-      left: 0;
+    .feature-list li.checked::before {
+      content: "✓";
       color: #7B61FF;
       font-weight: 700;
+      margin-right: 0.5rem;
     }
-    /* Crossed items */
-    .features li.crossed {
+    .feature-list li.crossed {
       color: #999;
     }
-    .features li.crossed::before {
-      content: '✗';
+    .feature-list li.crossed::before {
+      content: "✗";
       color: #FF5A5F; /* Red cross */
       font-weight: 700;
+      margin-right: 0.5rem;
     }
 
-    /* Buttons inside cards */
-    .card button {
-      margin-top: auto;
-      background: #FEEFFC;
+    /* BUTTON */
+    .choose-plan-btn {
+      background: #F1E7FF;
       color: #7B61FF;
-      border: none;
-      border-radius: 8px;
       font-weight: 700;
       font-size: 1rem;
       padding: 0.75rem 1.5rem;
-      cursor: pointer;
+      border: none;
+      border-radius: 8px;
+      margin-top: auto;
       transition: background 0.3s;
     }
-    .card button:hover {
-      background: #FFD2EE;
+    .choose-plan-btn:hover {
+      background: #DEC9FF;
     }
 
-    /* Pro (Most Popular) Card */
-    .card.pro {
-      background: linear-gradient(135deg, #7B61FF 0%, #9D6BFF 100%);
-      color: #FFFFFF;
-      box-shadow: 0 15px 40px rgba(123, 97, 255, 0.3);
-    }
-    .card.pro h3,
-    .card.pro .price,
-    .card.pro .subtitle {
-      color: #FFFFFF;
-    }
-    .card.pro .features li::before {
-      color: #FFFFFF;
-    }
-    .card.pro li.crossed::before {
-      color: #FFD2EE;
-    }
-    .card.pro li.crossed {
-      color: #FFE6F6;
-    }
-    .badge-popular {
+    /* PRO CARD (MOST POPULAR) */
+    .most-popular-badge {
       position: absolute;
-      top: 1rem;
+      top: -15px;
       left: 50%;
       transform: translateX(-50%);
       background: #FEEFFC;
@@ -215,377 +192,493 @@
       border-radius: 4px;
       text-transform: uppercase;
     }
-
-    /* -------------------- RESPONSIVE BREAKPOINTS -------------------- */
-    /* For large tablets / small laptops (max-width: 992px) */
-    @media (max-width: 992px) {
-      .hero h1 {
-        font-size: 2rem;
-      }
-      .hero p {
-        font-size: 0.95rem;
-      }
-      .pricing-cards {
-        gap: 1.5rem;
-      }
-      .card {
-        width: 45%;  /* 2 cards per row on ~tablet in landscape */
-      }
+    .pricing-card.pro {
+      background: linear-gradient(135deg, #7B61FF 0%, #9D6BFF 100%);
+      color: #FFFFFF;
+      box-shadow: 0 15px 40px rgba(123, 97, 255, 0.3);
+    }
+    .pricing-card.pro h3,
+    .pricing-card.pro p,
+    .pricing-card.pro .pricing-price {
+      color: #FFFFFF;
+    }
+    .pricing-card.pro .feature-list li.checked::before {
+      color: #FFFFFF;
+    }
+    .pricing-card.pro .feature-list li.crossed::before {
+      color: #FFD2EE;
+    }
+    .pricing-card.pro .feature-list li.crossed {
+      color: #FFE6F6;
+    }
+    .pricing-card.pro .choose-plan-btn {
+      background: #FEEFFC;
+      color: #7B61FF;
+    }
+    .pricing-card.pro .choose-plan-btn:hover {
+      background: #FFD2EE;
     }
 
-    /* For tablets / big phones (max-width: 768px) */
+    /* FAQ SECTION */
+    .faq-section {
+      background: #FFFFFF;
+      border-radius: 16px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+      padding: 2rem;
+      max-width: 900px;
+      margin: 0 auto 4rem;
+      text-align: left;
+    }
+    .faq-section h2 {
+      font-size: 1.75rem;
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+      text-align: center;
+    }
+    .faq-item {
+      border-bottom: 1px solid #eee;
+      margin-bottom: 1rem;
+      padding-bottom: 0.5rem;
+    }
+    .faq-question {
+      cursor: pointer;
+      font-size: 1rem;
+      font-weight: 600;
+      color: #2F2E41;
+      padding: 0.5rem 0;
+      position: relative;
+    }
+    .faq-question::after {
+      content: "▼";
+      position: absolute;
+      right: 0;
+      top: 0.5rem;
+      font-size: 0.8rem;
+      transition: transform 0.3s;
+    }
+    .faq-item.open .faq-question::after {
+      transform: rotate(-180deg);
+    }
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.5s ease, opacity 0.5s ease;
+      opacity: 0;
+    }
+    .faq-item.open .faq-answer {
+      max-height: 500px; /* Adjust if needed */
+      opacity: 1;
+    }
+    .faq-answer p {
+      margin-top: 0.5rem;
+      color: #6F6E84;
+      font-size: 0.95rem;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 992px) {
+      .pricing-wrapper {
+        gap: 1.5rem;
+      }
+      .pricing-card {
+        width: 45%;
+      }
+    }
     @media (max-width: 768px) {
-      .hero h1 {
-        font-size: 1.8rem;
-      }
-      .hero p {
-        font-size: 0.9rem;
-      }
-      .pricing-cards {
+      .pricing-wrapper {
         flex-direction: column;
         align-items: center;
       }
-      .card {
-        width: 90%;
+      .pricing-card {
+        width: 80%;
         max-width: 400px;
       }
-    }
-
-    /* For mobile phones (max-width: 480px) */
-    @media (max-width: 480px) {
-      .hero h1 {
-        font-size: 1.5rem;
-      }
-      .hero p {
-        font-size: 0.85rem;
-      }
-      .card {
-        width: 95%;
-        max-width: 350px;
+      .faq-section {
+        width: 90%;
       }
     }
   </style>
 </head>
 <body>
 
-  <!-- Hero Section -->
-  <section class="hero container">
-    <h1>Simple, transparent pricing</h1>
-    <p>No contracts. No surprise fees.</p>
-  </section>
+  <div class="container">
+    <!-- HERO SECTION -->
+    <h1 class="hero-title">Simple, transparent pricing</h1>
+    <p class="hero-subtitle">No contracts. No surprise fees.</p>
 
-  <!-- Service Buttons -->
-  <section class="services-section container">
-    <button class="service-btn" data-category="Long Form Videos">Long Form Videos</button>
-    <button class="service-btn" data-category="Short Form Videos">Short Form Videos</button>
-    <button class="service-btn" data-category="Thumbnail Design">Thumbnail Design</button>
-    <button class="service-btn" data-category="Channel & Social Media Management">
-      Channel &amp; Social Media Management
-    </button>
-  </section>
-
-  <!-- Pricing Cards -->
-  <section class="pricing-cards container">
-    <!-- Card 1: Use data-plan attribute so the visible title can be changed freely -->
-    <div class="card" data-plan="intro">
-      <h3>Basic</h3>
-      <p class="subtitle">Subtitle for Basic Plan</p>
-      <p class="price">$-- <span>/ project</span></p>
-      <ul class="features" data-features="intro">
-        <!-- Filled by JS -->
-      </ul>
-      <button>Choose Plan</button>
+    <!-- TOGGLE SECTION (4 Services) -->
+    <div class="toggle-section">
+      <div class="toggle-option active" data-service="Long Form Videos">Long Form Videos</div>
+      <div class="toggle-option" data-service="Short Form Videos">Short Form Videos</div>
+      <div class="toggle-option" data-service="Thumbnail Design">Thumbnail Design</div>
+      <div class="toggle-option" data-service="Channel & Social Media Manager">
+        Channel &amp; Social Media Manager
+      </div>
     </div>
 
-    <!-- Card 2: Pro (Most Popular) -->
-    <div class="card pro" data-plan="pro">
-      <span class="badge-popular">MOST POPULAR</span>
-      <h3>Standard</h3>
-      <p class="subtitle">Subtitle for Standard Plan</p>
-      <p class="price">$-- <span>/ project</span></p>
-      <ul class="features" data-features="pro">
-        <!-- Filled by JS -->
-      </ul>
-      <button>Choose Plan</button>
+    <!-- PRICING CARDS -->
+    <div class="pricing-wrapper">
+      <!-- Basic Card -->
+      <div class="pricing-card" data-plan="basic">
+        <h3>Basic</h3>
+        <p class="plan-desc">For small projects</p>
+        <div class="pricing-price">$--<span>/ project</span></div>
+        <ul class="feature-list" data-features="basic"></ul>
+        <button class="choose-plan-btn">Choose plan</button>
+      </div>
+
+      <!-- Pro Card (MOST POPULAR) -->
+      <div class="pricing-card pro" data-plan="pro">
+        <div class="most-popular-badge">MOST POPULAR</div>
+        <h3>Standard</h3>
+        <p class="plan-desc">For growing creators</p>
+        <div class="pricing-price">$--<span>/ project</span></div>
+        <ul class="feature-list" data-features="pro"></ul>
+        <button class="choose-plan-btn">Choose plan</button>
+      </div>
+
+      <!-- Enterprise Card -->
+      <div class="pricing-card" data-plan="enterprise">
+        <h3>Premium</h3>
+        <p class="plan-desc">For large scale solutions</p>
+        <div class="pricing-price">$--<span>/ project</span></div>
+        <ul class="feature-list" data-features="enterprise"></ul>
+        <button class="choose-plan-btn">Choose plan</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- FAQ SECTION (Accordion) -->
+  <section class="faq-section">
+    <h2>What The FAQ?</h2>
+
+    <!-- FAQ Item 1 -->
+    <div class="faq-item">
+      <div class="faq-question">1. How long does a typical project take?</div>
+      <div class="faq-answer">
+        <p>Typically, projects can be delivered within a few days to a week, depending on complexity.</p>
+      </div>
     </div>
 
-    <!-- Card 3: Enterprise -->
-    <div class="card" data-plan="enterprise">
-      <h3>Enterprise</h3>
-      <p class="subtitle">Subtitle for Enterprise Plan</p>
-      <p class="price">$-- <span>/ project</span></p>
-      <ul class="features" data-features="enterprise">
-        <!-- Filled by JS -->
-      </ul>
-      <button>Choose Plan</button>
+    <!-- FAQ Item 2 -->
+    <div class="faq-item">
+      <div class="faq-question">2. What file formats do you support?</div>
+      <div class="faq-answer">
+        <p>We can work with most major video formats (MP4, MOV, etc.) and deliver in your preferred format.</p>
+      </div>
+    </div>
+
+    <!-- FAQ Item 3 -->
+    <div class="faq-item">
+      <div class="faq-question">3. How many revisions are included?</div>
+      <div class="faq-answer">
+        <p>Each plan includes a set number of revisions; additional revisions can be purchased if needed.</p>
+      </div>
+    </div>
+
+    <!-- FAQ Item 4 -->
+    <div class="faq-item">
+      <div class="faq-question">4. Do you offer discounts for bulk projects?</div>
+      <div class="faq-answer">
+        <p>Yes, we offer special pricing if you have a large number of videos or thumbnails to edit.</p>
+      </div>
+    </div>
+
+    <!-- FAQ Item 5 -->
+    <div class="faq-item">
+      <div class="faq-question">5. Can I cancel or upgrade my plan anytime?</div>
+      <div class="faq-answer">
+        <p>Absolutely. You can upgrade, downgrade, or cancel at any point.</p>
+      </div>
+    </div>
+
+    <!-- FAQ Item 6 -->
+    <div class="faq-item">
+      <div class="faq-question">6. Do you provide 4K or higher resolution editing?</div>
+      <div class="faq-answer">
+        <p>Yes, 4K editing is included in the Pro and Enterprise packages.</p>
+      </div>
+    </div>
+
+    <!-- FAQ Item 7 -->
+    <div class="faq-item">
+      <div class="faq-question">7. Can you handle advanced motion graphics or VFX?</div>
+      <div class="faq-answer">
+        <p>Yes, advanced effects are part of our Pro and Enterprise packages, or available as add-ons.</p>
+      </div>
+    </div>
+
+    <!-- FAQ Item 8 -->
+    <div class="faq-item">
+      <div class="faq-question">8. How do I communicate with your team?</div>
+      <div class="faq-answer">
+        <p>We can communicate via email, Slack, Zoom, or any preferred platform.</p>
+      </div>
+    </div>
+
+    <!-- FAQ Item 9 -->
+    <div class="faq-item">
+      <div class="faq-question">9. What if I need more services than listed?</div>
+      <div class="faq-answer">
+        <p>We’re happy to create a custom plan to fit your specific needs.</p>
+      </div>
+    </div>
+
+    <!-- FAQ Item 10 -->
+    <div class="faq-item">
+      <div class="faq-question">10. How do I get started?</div>
+      <div class="faq-answer">
+        <p>Just pick a plan, contact us, and we’ll guide you through the onboarding process.</p>
+      </div>
     </div>
   </section>
 
   <script>
-    // Plan data for each category:
-    // Each category has 3 plans: intro, pro, enterprise.
-    // Each plan has: price, subtitle, array of 5 checked features, array of 3 crossed features.
+    /*
+      planData for each service type.
+      Each service has 3 packages: basic, pro, enterprise.
+      Each package has:
+        - price
+        - description
+        - 5 checked features (checks)
+        - 3 crossed features (crosses)
+    */
     const planData = {
       "Long Form Videos": {
-        intro: {
-          price: 20,
-          subtitle: "Basic for long form content",
+        basic: {
+          price: 50,
+          description: "Basic editing for longer content",
           checks: [
             "Up to 30 min video",
-            "Basic Editing",
-            "Stock Music",
+            "Basic cuts & transitions",
             "720p Output",
-            "1 Revision"
+            "1 Revision",
+            "Basic color tweaks"
           ],
           crosses: [
-            "Advanced Effects",
-            "Color Grading",
-            "Dedicated Manager"
+            "Advanced effects",
+            "Motion graphics",
+            "Dedicated manager"
           ]
         },
         pro: {
           price: 120,
-          subtitle: "For advanced long form content",
+          description: "Advanced editing for longer content",
           checks: [
             "Up to 60 min video",
-            "Advanced Editing",
-            "Motion Graphics",
+            "Color grading",
             "1080p Output",
-            "2 Revisions"
+            "2 Revisions",
+            "4K Rendering",
+            "Motion graphics"
           ],
           crosses: [
-            "4K Rendering",
-            "On-call Support",
-            "Social Media Promotion"
+            "On-call support",
+            "Social media promotion"
           ]
         },
         enterprise: {
           price: 300,
-          subtitle: "Full-scale production",
+          description: "Full-scale production for long content",
           checks: [
             "Unlimited length",
-            "Dedicated Manager",
-            "Priority Support",
+            "Dedicated manager",
             "4K Rendering",
+            "Priority support",
             "3 Revisions"
           ],
           crosses: [
-            "Offline Events",
-            "Bulk Discount",
-            "Multi-Channel Editing"
+            "Offline events",
+            "Bulk discount",
+            "Multi-channel editing"
           ]
         }
       },
 
       "Short Form Videos": {
-        intro: {
-          price: 15,
-          subtitle: "Basic for short videos",
+        basic: {
+          price: 30,
+          description: "Basic editing for short clips",
           checks: [
             "Up to 5 min video",
-            "Basic Editing",
+            "Basic cuts",
             "720p Output",
-            "Stock Music",
-            "1 Revision"
+            "1 Revision",
+            "Basic text overlays"
           ],
           crosses: [
-            "Advanced Effects",
-            "Social Media Promotion",
-            "Color Grading"
+            "Advanced transitions",
+            "Motion graphics",
+            "Color grading"
           ]
         },
         pro: {
-          price: 90,
-          subtitle: "Advanced short video package",
+          price: 80,
+          description: "Pro editing for short content",
           checks: [
             "Up to 15 min video",
-            "Motion Graphics",
             "1080p Output",
-            "Color Grading",
-            "2 Revisions"
+            "2 Revisions",
+            "Motion graphics",
+            "Color grading"
           ],
           crosses: [
             "4K Rendering",
-            "Priority Support",
-            "Dedicated Manager"
+            "Priority support",
+            "Dedicated manager"
           ]
         },
         enterprise: {
           price: 200,
-          subtitle: "Complete short video solution",
+          description: "Enterprise solution for short content",
           checks: [
             "Up to 30 min video",
-            "Full Production Suite",
             "4K Rendering",
-            "Dedicated Manager",
-            "3 Revisions"
+            "3 Revisions",
+            "Dedicated manager",
+            "Priority support"
           ],
           crosses: [
-            "Offline Events",
-            "Bulk Discount",
-            "Live Streaming"
+            "Bulk discount",
+            "Offline events",
+            "Multi-channel editing"
           ]
         }
       },
 
       "Thumbnail Design": {
-        intro: {
-          price: 20,
-          subtitle: "Basic thumbnail package",
+        basic: {
+          price: 15,
+          description: "Basic thumbnail design",
           checks: [
-            "1 Thumbnail",
-            "Stock Images",
-            "Basic Text & Graphics",
+            "1 thumbnail",
+            "Stock images",
+            "Basic text & graphics",
             "1 Revision",
-            "Fast Delivery"
+            "Fast delivery"
           ],
           crosses: [
-            "Custom Illustration",
-            "Advanced Branding",
-            "Dedicated Manager"
+            "Custom illustration",
+            "Advanced branding",
+            "Dedicated designer"
           ]
         },
         pro: {
           price: 60,
-          subtitle: "Pro thumbnail package",
+          description: "Pro thumbnail package",
           checks: [
-            "5 Thumbnails",
-            "Custom Fonts",
-            "Advanced Graphics",
-            "Color Grading",
+            "5 thumbnails",
+            "Custom fonts",
+            "Color grading",
+            "Advanced graphics",
             "2 Revisions"
           ],
           crosses: [
-            "Hand-drawn Artwork",
-            "Bulk Discount",
-            "On-call Support"
+            "Hand-drawn artwork",
+            "Bulk discount",
+            "On-call support"
           ]
         },
         enterprise: {
           price: 120,
-          subtitle: "Enterprise thumbnail solution",
+          description: "Enterprise thumbnail solution",
           checks: [
-            "Unlimited Thumbnails",
-            "Dedicated Designer",
-            "Branding Consultation",
-            "Priority Support",
+            "Unlimited thumbnails",
+            "Dedicated designer",
+            "Branding consultation",
+            "Priority support",
             "3 Revisions"
           ],
           crosses: [
-            "Offline Events",
-            "Bulk Discount",
-            "Social Media Management"
+            "Offline events",
+            "Bulk discount",
+            "Social media management"
           ]
         }
       },
 
-      "Channel & Social Media Management": {
-        intro: {
-          price: 50,
-          subtitle: "Basic channel management",
+      "Channel & Social Media Manager": {
+        basic: {
+          price: 70,
+          description: "Basic channel management",
           checks: [
-            "Weekly Video Uploads",
+            "Weekly uploads",
             "Basic SEO",
-            "Thumbnail Design",
-            "Community Replies",
-            "Monthly Report"
+            "Thumbnail design",
+            "Community replies",
+            "Monthly report"
           ],
           crosses: [
             "Advanced SEO",
-            "Daily Content Strategy",
-            "Paid Advertising"
+            "Paid advertising",
+            "Daily content strategy"
           ]
         },
         pro: {
           price: 150,
-          subtitle: "Pro channel management",
+          description: "Pro channel & social management",
           checks: [
-            "Bi-Weekly Video Uploads",
+            "Bi-weekly uploads",
             "Advanced SEO",
-            "Social Media Posting",
-            "Community Engagement",
-            "Monthly Analysis"
+            "Social media posting",
+            "Community engagement",
+            "Monthly analysis"
           ],
           crosses: [
-            "Paid Ads Management",
-            "Influencer Outreach",
-            "Custom Branding"
+            "Paid ads management",
+            "Influencer outreach",
+            "Custom branding"
           ]
         },
         enterprise: {
           price: 300,
-          subtitle: "Full-scale channel & social management",
+          description: "Full-scale channel & social solution",
           checks: [
-            "Daily Content Strategy",
-            "Priority Support",
-            "Paid Advertising",
-            "Dedicated Manager",
-            "Detailed Analytics"
+            "Daily content strategy",
+            "Priority support",
+            "Paid advertising",
+            "Dedicated manager",
+            "Detailed analytics"
           ],
           crosses: [
-            "Offline Events",
-            "Bulk Discount",
-            "In-Person Consulting"
+            "Bulk discount",
+            "Offline events",
+            "In-person consulting"
           ]
         }
       }
     };
 
-    // Grab references to cards using data-plan attributes
-    const introCard = document.querySelector('[data-plan="intro"]');
+    // TOGGLE REFERENCES
+    const toggleOptions = document.querySelectorAll('.toggle-option');
+
+    // PRICING CARD REFERENCES
+    const basicCard = document.querySelector('[data-plan="basic"]');
     const proCard = document.querySelector('[data-plan="pro"]');
     const enterpriseCard = document.querySelector('[data-plan="enterprise"]');
 
-    const introPriceEl = introCard.querySelector('.price');
-    const proPriceEl = proCard.querySelector('.price');
-    const enterprisePriceEl = enterpriseCard.querySelector('.price');
+    // Price elements
+    const basicPriceEl = basicCard.querySelector('.pricing-price');
+    const proPriceEl = proCard.querySelector('.pricing-price');
+    const enterprisePriceEl = enterpriseCard.querySelector('.pricing-price');
 
-    const introSubtitleEl = introCard.querySelector('.subtitle');
-    const proSubtitleEl = proCard.querySelector('.subtitle');
-    const enterpriseSubtitleEl = enterpriseCard.querySelector('.subtitle');
+    // Description elements
+    const basicDescEl = basicCard.querySelector('.plan-desc');
+    const proDescEl = proCard.querySelector('.plan-desc');
+    const enterpriseDescEl = enterpriseCard.querySelector('.plan-desc');
 
-    // Use the features UL element’s data-features attribute as an identifier
-    const introFeaturesEl = document.querySelector('[data-features="intro"]');
-    const proFeaturesEl = document.querySelector('[data-features="pro"]');
-    const enterpriseFeaturesEl = document.querySelector('[data-features="enterprise"]');
+    // Feature lists
+    const basicFeaturesEl = basicCard.querySelector('[data-features="basic"]');
+    const proFeaturesEl = proCard.querySelector('[data-features="pro"]');
+    const enterpriseFeaturesEl = enterpriseCard.querySelector('[data-features="enterprise"]');
 
-    const serviceButtons = document.querySelectorAll('.service-btn');
-
-    // Show chosen category's plan details
-    function showCategory(category) {
-      // Remove 'active' class from all buttons, then add to the clicked one
-      serviceButtons.forEach(btn => {
-        btn.classList.remove('active');
-        if (btn.dataset.category === category) {
-          btn.classList.add('active');
-        }
-      });
-
-      // Get the data for the selected category
-      const catData = planData[category];
-
-      // Intro plan
-      introPriceEl.innerHTML = `$${catData.intro.price} <span>/ project</span>`;
-      introSubtitleEl.textContent = catData.intro.subtitle;
-      fillFeatures(introFeaturesEl, catData.intro.checks, catData.intro.crosses);
-
-      // Pro plan
-      proPriceEl.innerHTML = `$${catData.pro.price} <span>/ project</span>`;
-      proSubtitleEl.textContent = catData.pro.subtitle;
-      fillFeatures(proFeaturesEl, catData.pro.checks, catData.pro.crosses);
-
-      // Enterprise plan
-      enterprisePriceEl.innerHTML = `$${catData.enterprise.price} <span>/ project</span>`;
-      enterpriseSubtitleEl.textContent = catData.enterprise.subtitle;
-      fillFeatures(enterpriseFeaturesEl, catData.enterprise.checks, catData.enterprise.crosses);
-    }
-
-    // Helper function to fill the features list
+    // Fill feature lists
     function fillFeatures(listEl, checks, crosses) {
-      listEl.innerHTML = ''; // Clear old features
+      listEl.innerHTML = '';
       checks.forEach(item => {
         const li = document.createElement('li');
         li.textContent = item;
+        li.classList.add('checked');
         listEl.appendChild(li);
       });
       crosses.forEach(item => {
@@ -596,16 +689,60 @@
       });
     }
 
-    // Click event for service buttons
-    serviceButtons.forEach(btn => {
-      btn.addEventListener('click', () => {
-        showCategory(btn.dataset.category);
+    // Switch service category
+    function showServiceCategory(category) {
+      // Update active button
+      toggleOptions.forEach(opt => {
+        opt.classList.remove('active');
+        if (opt.dataset.service === category) {
+          opt.classList.add('active');
+        }
+      });
+
+      const catData = planData[category];
+
+      // BASIC
+      basicPriceEl.innerHTML = `$${catData.basic.price}<span>/ project</span>`;
+      basicDescEl.textContent = catData.basic.description;
+      fillFeatures(basicFeaturesEl, catData.basic.checks, catData.basic.crosses);
+
+      // PRO
+      proPriceEl.innerHTML = `$${catData.pro.price}<span>/ project</span>`;
+      proDescEl.textContent = catData.pro.description;
+      fillFeatures(proFeaturesEl, catData.pro.checks, catData.pro.crosses);
+
+      // ENTERPRISE
+      enterprisePriceEl.innerHTML = `$${catData.enterprise.price}<span>/ project</span>`;
+      enterpriseDescEl.textContent = catData.enterprise.description;
+      fillFeatures(enterpriseFeaturesEl, catData.enterprise.checks, catData.enterprise.crosses);
+    }
+
+    // Event: Click on toggle option
+    toggleOptions.forEach(opt => {
+      opt.addEventListener('click', () => {
+        showServiceCategory(opt.dataset.service);
       });
     });
 
-    // Show "Long Form Videos" by default on page load
+    // Show "Long Form Videos" by default
     document.addEventListener('DOMContentLoaded', () => {
-      showCategory("Long Form Videos");
+      showServiceCategory("Long Form Videos");
+    });
+
+    // FAQ Accordion
+    const faqItems = document.querySelectorAll('.faq-item');
+    faqItems.forEach(item => {
+      const question = item.querySelector('.faq-question');
+      question.addEventListener('click', () => {
+        // Close others
+        faqItems.forEach(i => {
+          if (i !== item) {
+            i.classList.remove('open');
+          }
+        });
+        // Toggle this one
+        item.classList.toggle('open');
+      });
     });
   </script>
 </body>
