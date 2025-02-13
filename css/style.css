@@ -600,33 +600,6 @@ button
   -webkit-transition: 0.4s cubic-bezier(0, 0, 0.3642, 1);
   transition: 0.4s cubic-bezier(0, 0, 0.3642, 1);
 }
-@property --angle{
-  syntax: "<angle>";
-  initial-value: 0deg;
-  inherits: false;
-}
-.mil-button::after, .mil-button::before{
-  background-image: conic-gradient(from var(--angle),#b1e2e6, #adffff, #f5ffff);
-  top: 50%;
-  left: 50%;
-  translate: -50% -50%;
-  z-index: -1;
-  padding: 3px;
-  border-radius: 25px;
-  animation: 6s spin linear infinite;
-}
-.mil-button::before{
-  filter: blur(1.5rem);
-  opacity: 0.5;
-}
-@keyframes spin{
-  from{
-    --angle: 0deg;
-  }
-  to{
-    --angle: 360deg;
-  }
-}
 .mil-button span {
   white-space: nowrap;
 }
