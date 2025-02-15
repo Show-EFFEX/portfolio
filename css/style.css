@@ -680,10 +680,6 @@ button
   transition: transform 0.3s ease;
 }
 
-.mil-button:hover span {
-  transform: scale(1.1); /* Makes the text 10% bigger on hover */
-}
-
 .mil-button:hover svg {
   -webkit-transform: scale(1.15);
           transform: scale(1.15);
