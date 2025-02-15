@@ -606,6 +606,12 @@ button
   overflow: visible;
 }
 
+@property --angle{
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+
 .mil-button::before {
   content: '';
   position: absolute;
@@ -613,30 +619,23 @@ button
   left: -4px;
   right: -4px;
   bottom: -4px;
-  background: conic-gradient(
-    #ff0000,
-    #ff7f00,
-    #ffff00,
-    #00ff00,
-    #0000ff,
-    #4b0082,
-    #8f00ff,
-    #ff0000
-  );
+  background-image: conic-gradient(from var(--angle), #ffa0ff, #915bac, #ffbd5b);
   border-radius: 74px;
-  filter: blur(10px);
+  filter: blur(7px);
   z-index: -1;
-  animation: hue-rotate 3s linear infinite;
+  padding: 3px;
+  animation: spin 1.5s linear infinite;
 }
 
-@keyframes hue-rotate {
+@keyframes spin {
   from {
-    filter: blur(10px) hue-rotate(0deg);
+    --angle: 0deg;
   }
   to {
-    filter: blur(10px) hue-rotate(360deg);
+    --angle: 360deg;
   }
 }
+
 .mil-button span {
   white-space: nowrap;
 }
@@ -676,12 +675,13 @@ button
   transition: background-size 0.3s ease; /* Adds smooth transition for background */
 }
 
-.mil-button:hover {
-  -webkit-transform: scale(1.015);
-          transform: scale(1.015);
-  -webkit-filter: brightness(110%);
-          filter: brightness(110%);
-  background-size: 105% 105%; /* Slightly expands background on hover */
+/* Add a smooth scaling effect to the text inside the button */
+.mil-button span {
+  transition: transform 0.3s ease;
+}
+
+.mil-button:hover span {
+  transform: scale(1.1); /* Makes the text 10% bigger on hover */
 }
 
 .mil-button:hover svg {
