@@ -840,25 +840,24 @@ $(function () {
         ***************************/
 
         const appearance = document.querySelectorAll(".mil-up");
-
         appearance.forEach((section) => {
             gsap.fromTo(section, {
                 opacity: 0,
                 y: 40,
-                scale: .98,
-                ease: 'sine',
-
+                scale: 0.98,
+                ease: 'sine'
             }, {
                 y: 0,
                 opacity: 1,
                 scale: 1,
-                duration: .4,
+                duration: 0.4,
                 scrollTrigger: {
                     trigger: section,
-                    toggleActions: 'play none none reverse',
+                    scrub: 0.5,
                 }
             });
         });
+        
 
         const scaleImage = document.querySelectorAll(".mil-scale");
 
