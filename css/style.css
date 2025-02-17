@@ -1123,7 +1123,7 @@ preloader
   position: absolute;
   opacity: 0;
   height: 100%;
-  background-color: rgb(0, 255, 213);
+  background-color: #8162FE;
 }
 .mil-preloader.mil-hidden {
   pointer-events: none;
@@ -1218,7 +1218,7 @@ scrollbar
 .mil-progress-track .mil-progress {
   width: 4px;
   height: 0;
-  background-color: #EAEAF8;
+  background-color: #8162FE;
 }
 @media screen and (max-width: 992px) {
   .mil-progress-track {
@@ -1616,13 +1616,13 @@ menu
 .mil-main-menu ul li a.mil-active:before {
   -webkit-transform: scale(1);
           transform: scale(1);
-  background-color: rgb(255, 152, 0);
+  background-color: #8162FE;
 }
 .mil-main-menu ul li.mil-active > a {
-  color: rgb(255, 152, 0);
+  color: #8162FE;
 }
 .mil-main-menu ul li.mil-active > a:hover {
-  color: rgb(255, 152, 0) !important;
+  color: #8162FE !important;
   -webkit-filter: brightness(110%);
           filter: brightness(110%);
 }
