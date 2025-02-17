@@ -3024,7 +3024,7 @@ blog
   background-color: rgb(229, 229, 229);
 }
 .mil-category-list li a.mil-active {
-  background-color: rgb(255, 152, 0);
+  background-color: #8162FE;
 }
 @media screen and (max-width: 768px) {
   .mil-category-list {
