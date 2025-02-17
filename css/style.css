@@ -670,7 +670,7 @@ button
   fill: rgb(0, 0, 0);
 }
 .mil-button {
-  background: #f7f7fe /* your gradient color */
+  background: #f7f7fe; /* your gradient color */
   background-size: 100% 100%;
   transition: background-size 0.3s ease; /* Adds smooth transition for background */
 }
@@ -2258,7 +2258,7 @@ about
   width: 30px;
   height: 30px;
   border-radius: 50%;
-  background-color: rgb(255, 152, 0);
+  background-color: #8162FE;
   position: absolute;
   bottom: 0;
   right: 0;
